@@ -127,3 +127,7 @@ Notes:
 ***
 
 3. `sudo wg-quick up wg0`
+
+## Miscellaneous
+
+Unfortunately WireGuard is UDP only, you cannot configure it run over TCP. If you want to setup a TCP tunnel, refer my another guide ![https://github.com/tianhu/bigwall](https://github.com/tianhu/bigwall).
