@@ -51,6 +51,7 @@ PublicKey = JbnFipIs+E8B1F9AniNd7OnPjGBTbO3iBGUgONmA+yM=
 AllowedIPs = 0.0.0.0/0
 Endpoint = <server-public-ip>:6001
 ```
+
 Notes:
 
 ***
@@ -98,7 +99,7 @@ You can use commands or modify the configuration file `wg0.conf`.
 
 `sudo wg set wg0 peer <client-public-key> allowed-ips 10.0.9.2/32`
 
-Notes
+Notes:
 
 ***
 * Replace `<client-public-key>` with the content of the client's PublicKey.
@@ -117,6 +118,9 @@ Append below section.
 PublicKey = <client-public-key>
 AllowedIPs = 10.0.9.2/32
 ```
+
+Notes:
+
 * Replace `<client-public-key>` with the content of the client's PublicKey.
 * Replace the `10.0.9.2/32` with the client private ip, not public ip, and use /32 for its subnet mask.
 ***
