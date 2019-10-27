@@ -35,7 +35,7 @@ Run below commands on the server.
 3. Click `Add Tunnel` button.
 4. Choose `Add empty tunnel...`.
 5. Enter a name.
-6. Append `Address` and `DNS` to the `[interface]` section.
+6. Append private `Address` and `DNS` to the `[interface]` section.
 7. Add the server's public key and **public IP** address with port to a `[peer]` section.
 
 It should look like below.
@@ -77,14 +77,14 @@ Same as the server configuration without ListenPort and iptables settings of NAT
 3. Click Add button.
 4. Choose `Create from scratch`.
 5. Enter a name.
-6. Click  `GENERATE` button to generate Private and Public keys.
-7. Set addresses to `10.0.9.3/24`. **It must be different with the server and other clients**
-8. Set DNS servers to `1.1.1.1` **Or `8.8.8.8` as you like**
+6. Click  `GENERATE` button to generate client's Private and Public keys.
+7. Set private `addresses` to `10.0.9.3/24`. **It must be different with the server and other clients**
+8. Set `DNS servers` to `1.1.1.1` **Or `8.8.8.8` as you like**
 9. Just leave `Listen port` and `MTU` empty.
 10. Click `ADD PEER` button to add the server information.
 11. Copy paste the content of the `public.key` from the server to the Peer `Public key`.
 12. Set `Allowed IPs` to `0.0.0.0/0`.
-13. Set `Endpoint` to your server's address in format `ip:port`. **The server's port is set in server's configration. In the guide we used 6001.**
+13. Set `Endpoint` to your server's **public IP** address in format `ip:port`. **The server's port is set in server's configration. In the guide we used 6001.**
 14. Just leave other settings empty.
 
 ### iOS
@@ -93,9 +93,9 @@ Same as Android
 
 ## Allow clients connect to the server
 
-You can use commands or modify the configuration file `wg0.conf`.
+You can use a wg command or modify the configuration file `wg0.conf`.
 
-### Method 1 - use wg command line
+### Method 1 - use a command line
 
 `sudo wg set wg0 peer <client-public-key> allowed-ips 10.0.9.2/32`
 
@@ -103,14 +103,14 @@ Notes:
 
 ***
 * Replace `<client-public-key>` with the content of the client's PublicKey.
-* Replace the `10.0.9.2/32` with the client private ip, not public ip, and use /32 for its subnet mask.
-* Since we set `SaveConfig = true` in the server's configuration file, so we do not need to modify the configuration file `wg0.conf` manually
+* Replace the `10.0.9.2/32` with the client **private IP**, not public ip, and use `/32` for its subnet mask.
+* Since we have set `SaveConfig = true` in the server's configuration file, so we do not need to modify the configuration file `wg0.conf` for this.
 ***
 
 ### Or use method 2 - modify the configuration file
 
 1. `sudo wg-quick down wg0`
-2. sudo vi /etc/wireguard/wg0.conf 
+2. `sudo vi /etc/wireguard/wg0.conf` 
 
 ***
 Append below section.
@@ -122,8 +122,8 @@ AllowedIPs = 10.0.9.2/32
 
 Notes:
 
-* Replace `<client-public-key>` with the content of the client's PublicKey.
-* Replace the `10.0.9.2/32` with the client private ip, not public ip, and use /32 for its subnet mask.
+* Replace `<client-public-key>` with the content of the client's public key.
+* Replace the `10.0.9.2/32` with the client **private IP**, not public ip, and use `/32` for its subnet mask.
 ***
 
 3. `sudo wg-quick up wg0`
