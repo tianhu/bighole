@@ -36,7 +36,7 @@ Run below commands on the server.
 4. Choose `Add empty tunnel...`.
 5. Enter a name.
 6. Append `Address` and `DNS` to the `[interface]` section.
-7. Add the server's public key and IP address with port to a `[peer]` section.
+7. Add the server's public key and **public IP** address with port to a `[peer]` section.
 
 It should look like below.
 
@@ -55,11 +55,11 @@ Endpoint = <server-public-ip>:6001
 Notes:
 
 ***
-* Do not change the PrivateKey under the [interface] section.
-* The Address value must be different with the server and other clients. In this sample, we set the server address to 10.0.9.1 and the first client to 10.0.9.2
-* You can set other DNS address, such like `8.8.8.8` under the [interface] section.
-* Replace the PublicKey value under the [peer] section with the content of the server's public.key.
-* Set the server's **public** IP address with port to the Endpoint under the [peer] section.
+* Do not change the `PrivateKey` under the `[interface]` section.
+* The `Address` value must be different with the server and other clients. In this sample, we set the server address to 10.0.9.1 and the first client to 10.0.9.2
+* You can use other `DNS` addresses, such like `8.8.8.8` under the `[interface]` section.
+* Replace the `PublicKey` value under the `[peer]` section with the content of the server's public.key.
+* Set the server's **public IP** address with port to the `Endpoint` under the `[peer]` section.
 ***
 
 ### macOS
@@ -68,7 +68,7 @@ Same as Windows.
 
 ### Linux
 
-Same as the server without ListenPort and iptables settings of NAT forward.
+Same as the server configuration without ListenPort and iptables settings of NAT forward.
 
 ### Android
 
