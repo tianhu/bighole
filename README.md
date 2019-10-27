@@ -89,3 +89,36 @@ Same as the server without ListenPort and iptables settings of NAT forward.
 ### iOS
 
 Same as Android
+
+## Allow clients connect to the server
+
+You can use commands or modify the configuration file `wg0.conf`.
+
+### Method 1 - use wg command line
+
+`sudo wg set wg0 peer <client-public-key> allowed-ips 10.0.9.2/32`
+
+Notes
+
+***
+* Replace `<client-public-key>` with the content of the client's PublicKey.
+* Replace the `10.0.9.2/32` with the client private ip, not public ip, and use /32 for its subnet mask.
+***
+
+### Or use method 2 - modify `wg0.conf` manually
+
+1. `sudo wg-quick down wg0`
+2. sudo vi /etc/wireguard/wg0.conf 
+
+***
+Append below section.
+```
+[Peer]
+PublicKey = <client-public-key>
+AllowedIPs = 10.0.9.2/32
+```
+* Replace `<client-public-key>` with the content of the client's PublicKey.
+* Replace the `10.0.9.2/32` with the client private ip, not public ip, and use /32 for its subnet mask.
+***
+
+3. `sudo wg-quick up wg0`
