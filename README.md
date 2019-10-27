@@ -104,9 +104,10 @@ Notes:
 ***
 * Replace `<client-public-key>` with the content of the client's PublicKey.
 * Replace the `10.0.9.2/32` with the client private ip, not public ip, and use /32 for its subnet mask.
+* Since we set `SaveConfig = true` in the server's configuration file, so we do not need to modify the configuration file `wg0.conf` manually
 ***
 
-### Or use method 2 - modify `wg0.conf` manually
+### Or use method 2 - modify the configuration file
 
 1. `sudo wg-quick down wg0`
 2. sudo vi /etc/wireguard/wg0.conf 
