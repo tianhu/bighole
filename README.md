@@ -130,4 +130,4 @@ Notes:
 
 ## Miscellaneous
 
-Unfortunately WireGuard is UDP only, you cannot configure it run over TCP. If you want to setup a TCP tunnel, refer my another guide ![https://github.com/tianhu/bigwall](https://github.com/tianhu/bigwall).
+Unfortunately WireGuard is UDP only, you cannot configure it run over TCP. If you want to setup a TCP tunnel, refer my another guide https://github.com/tianhu/bigwall.
