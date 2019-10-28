@@ -132,7 +132,7 @@ AllowedIPs = 10.0.9.2/32
 Notes:
 
 * Replace `<client-public-key>` with the content of the client's public key.
-* Replace the `10.0.9.2/32` with the client **private IP**, not public ip, and use `/32` for its subnet mask.
+* Replace the `10.0.9.2/32` with a specified unique client **private IP**, not public ip, and use `/32` for its subnet mask.
 ***
 
 3. `sudo wg-quick up wg0`
