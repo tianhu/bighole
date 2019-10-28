@@ -113,7 +113,7 @@ Notes:
 
 ***
 * Replace `<client-public-key>` with the content of the client's PublicKey.
-* Replace the `10.0.9.2/32` with the client **private IP**, not public ip, and use `/32` for its subnet mask.
+* Replace the `10.0.9.2/32` with a specified unique client **private IP**, not public ip, and use `/32` for its subnet mask.
 ***
 
 ### Or use method 2 - modify the configuration file
