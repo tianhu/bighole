@@ -32,7 +32,8 @@ Run below commands on the server.
 
 8. `wg-quick up wg0`
 9. `systemctl enable wg-quick@wg0`
-10. `sysctl -w net.ipv4.ip_forward=1`
+10. `vi /etc/sysctl.conf`
+> * Search and uncomment the line `net.ipv4.ip_forward=1`
 11. `sysctl -p`
 
 ## Setup WireGuard client
