@@ -101,18 +101,18 @@ Same as Android
 
 ## Allow clients connect to the server
 
-You can use a wg command or modify the configuration file `wg0.conf`.
+You can use wg/wg-quick commands or modify the configuration file `wg0.conf`.
 
-### Method 1 - use a command line
+### Method 1 - use commands
 
-`sudo wg set wg0 peer <client-public-key> allowed-ips 10.0.9.2/32`
+1. `sudo wg set wg0 peer <client-public-key> allowed-ips 10.0.9.2/32`
+2. `sudo wg-quick save wg0`
 
 Notes:
 
 ***
 * Replace `<client-public-key>` with the content of the client's PublicKey.
 * Replace the `10.0.9.2/32` with the client **private IP**, not public ip, and use `/32` for its subnet mask.
-* Since we have set `SaveConfig = true` in the server's configuration file, so we do not need to modify the configuration file `wg0.conf` for this.
 ***
 
 ### Or use method 2 - modify the configuration file
